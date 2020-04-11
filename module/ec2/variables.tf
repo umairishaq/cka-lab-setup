@@ -22,6 +22,10 @@ variable "instance_count" {
   type = number
 }
 
+variable "user_data" {
+  type = string
+}
+
 
 
 

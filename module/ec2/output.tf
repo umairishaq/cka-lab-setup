@@ -14,32 +14,32 @@ output "pub_ips" {
   value       = local.instance_pub_ips
 }
 
-# output "availability_zone" {
-#   description = "Availability zone of the instances."
-#   value       = aws_instance.instance.availability_zone
-# }
+output "private_ips" {
+  description = "List of private IP addresses assigned to the instances"
+  value       = aws_instance.instance.*.private_ip
+}
 
-# output "key_name" {
-#   description = "List of key names of instances"
-#   value       = aws_instance.instance.key_name
-# }
+output "availability_zone" {
+  description = "Availability zone of the instances."
+  value       = aws_instance.instance.*.availability_zone
+}
 
-# output "public_ip" {
-#   description = "Public IP address assigned to the instance"
-#   value       = aws_instance.instance.public_ip
-# }
+output "key_name" {
+  description = "List of key names of instances"
+  value       = aws_instance.instance.*.key_name
+}
 
-# output "vpc_security_group_ids" {
-#   description = "List of associated security groups of instance."
-#   value       = aws_instance.instance.vpc_security_group_ids
-# }
+output "vpc_security_group_ids" {
+  description = "List of associated security groups of instance."
+  value       = aws_instance.instance.*.vpc_security_group_ids
+}
 
-# output "subnet_id" {
-#   description = "List of IDs of VPC subnets of instances"
-#   value       = aws_instance.instance.subnet_id
-# }
+output "subnet_id" {
+  description = "List of IDs of VPC subnets of instances"
+  value       = aws_instance.instance.*.subnet_id
+}
 
-# output "arn" {
-#   description = "List of instances arn"
-#   value       = aws_instance.instance.arn
-# }
+output "arn" {
+  description = "List of instances arn"
+  value       = aws_instance.instance.*.arn
+}

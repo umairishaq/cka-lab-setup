@@ -3,6 +3,10 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+data "local_file" "user_data" {
+  filename = "./setup.sh"
+}
+
 module "master_node" {
   source = "./module/ec2"
 
@@ -12,6 +16,7 @@ module "master_node" {
   instance_type   = var.master_instance_type
   security_groups = var.security_groups
   subnets         = var.subnets
+  user_data       = data.local_file.user_data.content
 }
 
 module "worker_nodes" {
@@ -23,4 +28,5 @@ module "worker_nodes" {
   instance_type   = var.worker_instance_type
   security_groups = var.security_groups
   subnets         = var.subnets
+  user_data       = data.local_file.user_data.content
 }
