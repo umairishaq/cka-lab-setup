@@ -1,5 +1,5 @@
 provider "aws" {
-  profile = "mylabTerraformCli"
+  profile = "mylab"
   region  = "us-east-1"
 }
 
